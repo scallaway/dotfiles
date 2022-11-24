@@ -1,0 +1,25 @@
+[window]
+decorations = "None"
+
+[window.dimensions]
+columns = 100
+lines = 30
+
+[window.padding]
+x = 5
+y = 0
+
+
+[font]
+size = 14.0
+normal.family = "Jetbrains Mono"
+bold.family = "Jetbrains Mono"
+bold_italic.family = "Jetbrains Mono"
+italic.family = "Jetbrains Mono"
+
+[env]
+TERM = "xterm-256color"
+
+[general]
+live_config_reload = true
+import = ["~/.config/alacritty/catppuccin-mocha.toml"]

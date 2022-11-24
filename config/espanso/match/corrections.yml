@@ -1,0 +1,8 @@
+matches:
+  - trigger: "youtube"
+    replace: "YouTube"
+    word: true
+
+  - trigger: "yt"
+    replace: "YouTube"
+    word: true
