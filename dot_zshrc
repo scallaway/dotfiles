@@ -27,4 +27,13 @@ export PATH="$HOME/.local/bin:$PATH"
 # Enable Zoxide
 eval "$(zoxide init --cmd j zsh)"
 
-echo "From chezmoi"
+# Useful aliases
+alias vi="nvim"
+alias vim="nvim"
+alias xx="exit"
+
+# Git aliases
+
+# fnm
+export PATH="/home/scallaway/.local/share/fnm:$PATH"
+eval "`fnm env`"
