@@ -37,6 +37,7 @@ alias sourceme="source ~/.zshrc"
 # Git aliases
 alias update="git status"
 alias branch="git branch"
+alias swap="git checkout"
 alias commit="git commit -m"
 alias raise="git push -u origin"
 
