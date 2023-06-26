@@ -1,13 +1,48 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+fpath=(~/zsh-completions/src ~/zsh-completions-custom $fpath)
+
+autoload -Uz compinit && compinit
+
+# Keybindings
+bindkey "^[[1;5C" forward-word # ctrl + right arrow
+bindkey "^[[1;5D" backward-word # ctrl + left arrow
+
 # Enable auto-correction
 ENABLE_CORRECTION="true"
-
-plugins=(git zsh-syntax-highlighting)
 
 # Add ~/.local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+# Add reinfer to bin
+export PATH="/opt/reinfer-dev/bin:$PATH"
+
 # Enable Zoxide
 eval "$(zoxide init --cmd j zsh)"
+
+# Reinfer-related stuff
+source ~/dev/uipath/reinfer/platform/dev/shellrc 2> /dev/null
+source ~/dev/uipath/reinfer/platform/dev/shellenv 2> /dev/null
+alias resource="source ~/dev/uipath/reinfer/env/bin/activate"
+export GH_NPM_REGISTRY_TOKEN=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
+
+# Docker shortcuts
+alias dc='docker compose'
+alias dcr='docker compose rm'
+alias dcu='docker compose up'
+alias dcs='docker compose stop'
+alias dcb='docker compose build'
+
+# Gcloud shortcuts
+alias cl=gcloud
+alias co='gcloud compute'
+alias cssh='gcloud compute ssh'
+alias gu=gsutil
 
 # Useful aliases
 alias vi="nvim"
@@ -15,6 +50,8 @@ alias vim="nvim"
 alias xx="exit"
 alias bashme="vi ~/.zshrc"
 alias sourceme="source ~/.zshrc"
+alias l="ls -lah"
+alias cat="bat"
 
 # Git aliases
 alias update="git status"
@@ -26,3 +63,10 @@ alias raise="git push -u origin"
 # fnm
 export PATH="/home/scallaway/.local/share/fnm:$PATH"
 eval "`fnm env`"
+
+source /home/scallaway/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/scallaway/zsh-plugins/git/git.plugin.zsh
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
