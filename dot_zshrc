@@ -30,6 +30,7 @@ source ~/dev/uipath/reinfer/platform/dev/shellrc
 source ~/dev/uipath/reinfer/platform/dev/shellenv
 alias resource="source ~/dev/uipath/reinfer/env/bin/activate"
 export GH_NPM_REGISTRY_TOKEN=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
+export REINFER_REQUIRE_GPU=1
 
 # Docker shortcuts
 alias dc='docker compose'
