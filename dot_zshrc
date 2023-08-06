@@ -26,8 +26,8 @@ export PATH="/opt/reinfer-dev/bin:$PATH"
 eval "$(zoxide init --cmd j zsh)"
 
 # Reinfer-related stuff
-source ~/dev/uipath/reinfer/platform/dev/shellrc
-source ~/dev/uipath/reinfer/platform/dev/shellenv
+source ~/dev/uipath/reinfer/platform/dev/shellrc 2> /dev/null # Try and source the file, but dump the error if we can't
+source ~/dev/uipath/reinfer/platform/dev/shellenv 2> /dev/null # Try and source the file, but dump the error if we can't
 alias resource="source ~/dev/uipath/reinfer/env/bin/activate"
 export GH_NPM_REGISTRY_TOKEN=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
 export REINFER_REQUIRE_GPU=1
