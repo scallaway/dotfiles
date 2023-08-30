@@ -57,7 +57,7 @@ alias bashme="vi ~/.zshrc"
 alias sourceme="source ~/.zshrc"
 alias l="ls -lah"
 alias cat="bat"
-alias grep="rg"
+alias grep="rg -i"
 
 # Git aliases
 alias update="git status"
@@ -92,3 +92,10 @@ export PATH=$PATH:/usr/local/go/bin
 # fnm
 export PATH="/home/scallaway/.local/share/fnm:$PATH"
 eval "`fnm env`"
+
+# bun completions
+[ -s "/home/scallaway/.bun/_bun" ] && source "/home/scallaway/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
