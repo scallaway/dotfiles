@@ -51,6 +51,7 @@ alias sourceme="source ~/.zshrc"
 alias l="ls -lah"
 alias cat="bat"
 alias grep="rg -i"
+alias lg="lazygit"
 
 # Git aliases
 alias update="git status"
