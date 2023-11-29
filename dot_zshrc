@@ -19,6 +19,9 @@ ENABLE_CORRECTION="true"
 # Add ~/.local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+# Add var for work directory
+export WORK_DIR="$HOME/dev/work"
+
 # Set editor
 export EDITOR="nvim"
 
