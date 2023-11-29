@@ -1,4 +1,5 @@
-import = ["~/.config/alacritty/one_dark.toml"]
+# import = ["~/.config/alacritty/one_dark.toml"]
+import = ["~/.config/alacritty/no-clown-fiesta.toml"]
 live_config_reload = true
 
 [window]
@@ -14,10 +15,10 @@ y = 0
 
 
 [font]
-size = 12.0
+size = 13.0
 normal.family = "Commit Mono"
 bold.family = "Commit Mono"
-bold_italic.family = "Commit Mono"
+bold_italic.family = "Caskaydia Cove Nerd Font"
 italic.family = "Caskaydia Cove Nerd Font"
 
 [env]
