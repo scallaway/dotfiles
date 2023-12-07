@@ -86,10 +86,6 @@ esac
 # Add Go to PATH
 export PATH=$PATH:/usr/local/go/bin
 
-# fnm
-export PATH="/home/scallaway/.local/share/fnm:$PATH"
-eval "`fnm env`"
-
 # bun completions
 [ -s "/home/scallaway/.bun/_bun" ] && source "/home/scallaway/.bun/_bun"
 
