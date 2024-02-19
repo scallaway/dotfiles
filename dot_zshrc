@@ -52,7 +52,7 @@ alias xx="exit"
 alias bashme="vi ~/.zshrc"
 alias sourceme="source ~/.zshrc"
 alias l="ls -lah"
-alias cat="bat"
+alias cat="batcat -pp"
 alias grep="rg -i"
 alias lg="lazygit"
 
@@ -63,6 +63,10 @@ alias swap="git checkout"
 alias commit="git commit -m"
 alias raise="git push -u origin"
 alias gdiff="git diff"
+
+# Share history between Tmux sessions
+setopt SHARE_HISTORY
+
 
 # fnm
 export PATH="/home/scallaway/.local/share/fnm:$PATH"
@@ -92,3 +96,7 @@ export PATH=$PATH:/usr/local/go/bin
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# fzf
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh

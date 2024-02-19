@@ -1,0 +1,18 @@
+lastupdatecheck: 0
+recentrepos:
+- /home/scallaway/dev/work/todo
+- /home/scallaway/dev/work/reinfer/platform
+- /home/scallaway/dev/personal/open-source/nextjs-bundle-analysis
+- /home/scallaway/notes
+- /home/scallaway/.config/nvim
+startuppopupversion: 5
+customcommandshistory:
+- git checkout origin/develop -- quota/reinfer_quota/tests/test_resource_limiter.py
+- git rebase -i origin/develop
+- git
+- git reset
+- git reset HEAD^
+- git checkout origin/develop -- train/reinfer_train/tests/test_validate.py
+- git rebase -i origin/master
+hidecommandlog: false
+ignorewhitespaceindiffview: false
