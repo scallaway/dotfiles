@@ -9,9 +9,11 @@
     [ # Include the results of the hardware scan.
       ../system/hardware-configuration.nix
       ../system/kernel.nix
+      ../system/xserver.nix
       ../system/security.nix
       ../system/bluetooth.nix
       ../system/nvidia.nix
+      ../system/gnome.nix
     ];
 
   # Enable nix flakes
@@ -46,16 +48,6 @@
     LC_TIME = systemSettings.locale;
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb.variant = "";
-  services.xserver.xkb.layout = "gb";
 
   # Firmware
   services.fwupd.enable = true;
@@ -83,9 +75,6 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${userSettings.username} = {
     isNormalUser = true;
@@ -98,17 +87,16 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile
   environment.systemPackages = with pkgs; [
-    neovim
-    git
-    home-manager
-    tmux
     lshw
     ripgrep
+    tmux
+    git
+    home-manager
   ];
 
+  # Check whether we still need this given home-manager
   environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;

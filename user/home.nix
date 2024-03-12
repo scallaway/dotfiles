@@ -13,9 +13,10 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
-    alacritty
-    git
+    neovim
     firefox
+    alacritty
+    alacritty
   ];
 
   home.sessionVariables = {
