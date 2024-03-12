@@ -16,7 +16,6 @@
     neovim
     firefox
     alacritty
-    alacritty
   ];
 
   home.sessionVariables = {
