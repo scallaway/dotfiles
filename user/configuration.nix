@@ -56,6 +56,9 @@
   services.xserver.xkb.variant = "";
   services.xserver.xkb.layout = "gb";
 
+  # Firmware
+  services.fwupd.enable = true;
+
   # Configure console keymap
   console.keyMap = "uk";
 

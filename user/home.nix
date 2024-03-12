@@ -17,4 +17,10 @@
     git
     firefox
   ];
+
+  home.sessionVariables = {
+    EDITOR = userSettings.editor;
+    TERM = userSettings.term;
+    BROWSER = userSettings.browser;
+  };
 }

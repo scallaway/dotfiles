@@ -17,6 +17,10 @@
       username = "scallaway";
       name = "Scott Callaway";
       email = "scott@scottcallaway.co.uk";
+      editor = "nvim";
+      browser = "firefox";
+      term = "alacritty";
+      font = "Commit Mono Nerd Font";
     };
 
     pkgs = import nixpkgs {
