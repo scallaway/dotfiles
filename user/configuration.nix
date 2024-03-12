@@ -11,6 +11,7 @@
       ../system/kernel.nix
       ../system/security.nix
       ../system/bluetooth.nix
+      ../system/nvidia.nix
     ];
 
   # Enable nix flakes
