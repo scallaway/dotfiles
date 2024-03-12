@@ -103,12 +103,18 @@
     neovim
     git
     home-manager
+    tmux
+    lshw
+    ripgrep
   ];
 
   environment.shells = with pkgs; [ zsh ];
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "CommitMono" "CascadiaMono" ]; })
+  ];
   fonts.fontDir.enable = true;
 
   system.stateVersion = "23.11";
