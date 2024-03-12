@@ -1,3 +1,0 @@
-Keyboard repeat;
-- Delay 200ms
-- Rate 50 repeats/s
