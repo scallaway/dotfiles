@@ -1,8 +1,8 @@
-{ config, unstable, ... }:
+{ config, nixpkgs, ... }:
 {
   programs.alacritty = {
     enable = true;
-    #package = unstable.alacritty;
+    package = nixpkgs.from.unstable.alacritty;
     settings = {
       env.TERM = "xterm-256color";
       font = {
