@@ -1,7 +1,7 @@
 {
   description = "scallaway personal PC configuration";
   
-  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, home-manager, ... }:
+  outputs = inputs@{ self, nixpkgs, unstable, home-manager, ... }:
 
   let
     # System Settings #
@@ -23,54 +23,37 @@
       font = "Commit Mono Nerd Font";
     };
 
-    pkgs = import nixpkgs {
-      system = systemSettings.system;
-      config = {
-        allowUnfree = true;
-      };
-    };
-
-    pkgs-stable = import pkgs-stable {
-      system = systemSettings.system;
-      config = {
-        allowUnfree = true;
-      };
-    };
-
     lib = nixpkgs.lib;
 
   in {
-    homeConfigurations = {
-      user = home-manager.lib.homeManagerConfiguration {
-      	inherit pkgs;
-	modules = [
-	  # Don't currently have work and personal setups as of yet
-	  (./. + "/user/home.nix")
-	];
-	extraSpecialArgs = {
-	  inherit pkgs-stable;
-	  inherit systemSettings;
-	  inherit userSettings;
-	};
-      };
-    };
     nixosConfigurations = {
       system = lib.nixosSystem {
         system = systemSettings.system;
 	modules = [
-	  (./. + "/user/configuration.nix")
+	  (./. + "/system/configuration.nix")
+	  home-manager.nixosModules.home-manager {
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+	    home-manager.users.${userSettings.username} = import ./user/home.nix;
+
+	    home-manager.extraSpecialArgs = {
+	      inherit userSettings unstable;
+	    };
+	  }
 	];
 	specialArgs = {
-	  inherit pkgs-stable;
-	  inherit systemSettings;
-	  inherit userSettings;
+	  inherit unstable systemSettings userSettings;
         };
       };
     };
   };
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-23.11";
+    nixpkgs.url = "nixpkgs/nixos-23.11";
+    unstable.url = "nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "home-manager/release-23.11";
+      inputs.pkgs.follows = "nixpkgs";
+    };
   };
 }

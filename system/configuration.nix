@@ -7,13 +7,13 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ../system/hardware-configuration.nix
-      ../system/kernel.nix
-      ../system/xserver.nix
-      ../system/security.nix
-      ../system/bluetooth.nix
-      ../system/nvidia.nix
-      ../system/gnome.nix
+      ./hardware-configuration.nix
+      ./kernel.nix
+      ./xserver.nix
+      ./security.nix
+      ./bluetooth.nix
+      ./nvidia.nix
+      ./gnome.nix
     ];
 
   # Enable nix flakes
@@ -89,22 +89,8 @@
 
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
-    lshw
-    ripgrep
-    tmux
     git
-    home-manager
   ];
-
-  # Check whether we still need this given home-manager
-  environment.shells = with pkgs; [ zsh ];
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
-
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "CommitMono" "CascadiaMono" ]; })
-  ];
-  fonts.fontDir.enable = true;
 
   system.stateVersion = "23.11";
 }

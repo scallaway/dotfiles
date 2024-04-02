@@ -2,6 +2,7 @@
 let
   myAliases = {
     l = "eza --icons -l -T -L=1";
+    ls = "l";
     cat = "bat";
     htop = "btop";
     nixos-rebuild = "systemd-run --no-ask-password --uid=0 --system --scope -p MemoryLimit=16000M -p CPUQuota=60% nixos-rebuild";
@@ -15,6 +16,17 @@ let
 
 in
 {
+  home.packages = with pkgs; [
+    bat
+    eza
+    ripgrep # Better `grep`
+    lshw
+    tmux
+    neofetch
+    btop
+    less
+  ];
+
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -30,9 +42,4 @@ in
     enableCompletion = true;
     shellAliases = myAliases;
   };
-
-  home.packages = with pkgs; [
-    bat
-    eza
-  ];
 }
