@@ -35,18 +35,12 @@
 
       inherit (nixpkgs-stable.legacyPackages."${system}") lib;
 
-      pkgs = import nixpkgs-stable { inherit system; };
-      unstable = import nixpkgs-unstable { inherit system; };
-
       nixpkgsConfig = {
         inherit system;
 	config.allowUnfree = true;
       };
 
-      nixpkgs.from = {
-        stable = import nixpkgs-stable nixpkgsConfig;
-	unstable = import nixpkgs-unstable nixpkgsConfig;
-      };
+      unstable = import nixpkgs-unstable { inherit system; };
 
     in {
       nixosConfigurations = {
@@ -63,7 +57,7 @@
                 users.${userSettings.username} = import ./user/home.nix;
 
                 extraSpecialArgs = {
-                  inherit nixpkgs systemSettings userSettings;
+                  inherit unstable systemSettings userSettings;
                 };
               };
             }
