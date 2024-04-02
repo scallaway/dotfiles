@@ -7,6 +7,7 @@
     ./shell.nix
     ./terminal.nix
     ./appearance.nix
+    ./editor.nix
   ];
 
   home.stateVersion = "23.11";
@@ -19,7 +20,6 @@
     nixci
     nix-health
 
-    neovim
     firefox
   ];
 
