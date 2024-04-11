@@ -1,0 +1,24 @@
+import = ["~/.config/alacritty/no-clown-fiesta.toml"]
+live_config_reload = true
+
+[window]
+decorations = "Full"
+
+[window.dimensions]
+columns = 100
+lines = 30
+
+[window.padding]
+x = 5
+y = 0
+
+
+[font]
+size = 13.0
+normal.family = "Commit Mono Nerd Font"
+bold.family = "Commit Mono Nerd Font"
+bold_italic.family = "CaskaydiaCove Nerd Font"
+italic.family = "CaskaydiaCove Nerd Font"
+
+[env]
+TERM = "xterm-256color"
