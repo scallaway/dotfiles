@@ -42,6 +42,9 @@ alias gdiff="git diff"
 # Set default editor to neovim
 export EDITOR="nvim"
 
+# Enable Zoxide
+eval "$(zoxide init --cmd j zsh)"
+
 # Be sure to keep this at the bottom
 eval "$(starship init zsh)"
 
@@ -51,3 +54,10 @@ eval "$(starship init zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# fnm
+FNM_PATH="/home/scallaway/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/scallaway/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
