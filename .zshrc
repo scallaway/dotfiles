@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/scallaway/.zsh/completions:"* ]]; then export FPATH="/home/scallaway/.zsh/completions:$FPATH"; fi
 # Set ZSH completion
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle :compinstall filename '/home/scallaway/.zshrc'
@@ -6,11 +8,16 @@ compinit
 
 # ZSH autocompletions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-custom-completions
+
+source ~/dev/work/.workrc
+
+export PATH="$HOME/.local/bin:$PATH"
 
 # Setup ZSH history
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=100000
+HISTSIZE=10000
+SAVEHIST=10000000
 setopt SHARE_HISTORY
 
 # Use extended pattern matching
@@ -30,6 +37,7 @@ alias ls="l"
 alias cat="bat -pp"
 alias grep="rg -i"
 alias lg="lazygit"
+alias python="python3"
 
 # ~ Git aliases ~
 alias update="git status"
@@ -61,3 +69,14 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/home/scallaway/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
+
+# fnm
+FNM_PATH="/home/scallaway/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/scallaway/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
+# Set up fzf key bindings and fuzzy completion
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+. "/home/scallaway/.deno/env"
