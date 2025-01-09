@@ -1,0 +1,6 @@
+theme = catppuccin-mocha
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+mouse-scroll-multiplier = 0.3
+window-decoration = false
