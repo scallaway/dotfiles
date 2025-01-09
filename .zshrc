@@ -8,15 +8,15 @@ compinit
 
 # ZSH autocompletions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-custom-completions
+source ~/.zsh/zsh-custom-completions 2> /dev/null
 
-source ~/dev/work/.workrc
+source ~/dev/work/.workrc 2> /dev/null
 
 export PATH="$HOME/.local/bin:$PATH"
 
 # Setup ZSH history
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
+HISTSIZE=1000000
 SAVEHIST=10000000
 setopt SHARE_HISTORY
 
@@ -32,12 +32,12 @@ alias vim="nvim"
 alias xx="exit"
 alias bashme="vi ~/.zshrc"
 alias sourceme="source ~/.zshrc"
-alias l="exa -lah"
+alias l="eza -lah"
 alias ls="l"
 alias cat="bat -pp"
 alias grep="rg -i"
 alias lg="lazygit"
-alias python="python3"
+alias z="zellij"
 
 # ~ Git aliases ~
 alias update="git status"
@@ -79,4 +79,11 @@ fi
 
 # Set up fzf key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-. "/home/scallaway/.deno/env"
+. "/home/scallaway/.deno/env" 2> /dev/null
+
+# fnm
+FNM_PATH="/home/scallaway/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/scallaway/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
