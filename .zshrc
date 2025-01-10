@@ -1,4 +1,3 @@
-# Add deno completions to search path
 if [[ ":$FPATH:" != *":/home/scallaway/.zsh/completions:"* ]]; then export FPATH="/home/scallaway/.zsh/completions:$FPATH"; fi
 # Set ZSH completion
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
@@ -12,7 +11,11 @@ source ~/.zsh/zsh-custom-completions 2> /dev/null
 
 source ~/dev/work/.workrc 2> /dev/null
 
+# Add local binaries to PATH
 export PATH="$HOME/.local/bin:$PATH"
+
+# Add binaries installed with Cargo to PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Setup ZSH history
 HISTFILE=~/.zsh_history
