@@ -17,6 +17,10 @@ export PATH="$HOME/.local/bin:$PATH"
 # Add binaries installed with Cargo to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Add go-related things to PATH
+export PATH=$PATH:/usr/local/go/bin
+export PATH="$HOME/go/bin:$PATH"
+
 # Setup ZSH history
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000

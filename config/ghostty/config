@@ -4,4 +4,5 @@ cursor-style = block
 cursor-style-blink = false
 mouse-scroll-multiplier = 0.3
 window-decoration = false
-font-size = 13
+keybind = ctrl+comma=unbind
+keybind = ctrl+enter=unbind
