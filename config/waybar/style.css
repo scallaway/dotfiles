@@ -1,7 +1,4 @@
 * {
-  border: none;
-  border-radius: 0;
-  min-height: 0;
   font-family: JetBrainsMono Nerd Font;
   font-size: 13px;
 }
@@ -29,7 +26,6 @@ window#waybar.hidden {
   /* Use box-shadow instead of border so the text isn't offset */
   padding: 6px 18px;
   margin: 6px 3px;
-  border-radius: 4px;
   background-color: #1e1e2e;
   color: #cdd6f4;
 }
