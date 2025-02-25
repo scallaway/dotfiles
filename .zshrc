@@ -23,9 +23,10 @@ export PATH="$HOME/go/bin:$PATH"
 
 # Setup ZSH history
 HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=10000000
-setopt SHARE_HISTORY
+SAVEHIST="$((2 ** 31))"
+HISTSIZE="$SAVEHIST"
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
 
 # Use extended pattern matching
 setopt autocd extendedglob nomatch
@@ -53,6 +54,7 @@ alias swap="git checkout"
 alias commit="git commit -m"
 alias raise="git push -u origin"
 alias gdiff="git diff"
+alias cpdiff="git diff | xclip -selection clipboard"
 
 # Set default editor to neovim
 export EDITOR="nvim"
