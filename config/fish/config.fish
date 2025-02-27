@@ -4,11 +4,13 @@ else
   zellij
 end
 
+set fish_greeting
+
 # ~ Useful aliases ~
 alias vi="nvim"
 alias vim="nvim"
 alias xx="exit"
-alias bashme="vi ~/.zshrc"
+alias bashme="vi ~/dotfiles/config/fish/config.fish"
 alias sourceme="source ~/.zshrc"
 alias l="eza -lah"
 alias ls="l"
@@ -16,6 +18,7 @@ alias cat="bat -pp"
 alias grep="rg -i"
 alias lg="lazygit"
 alias z="zellij"
+alias r="ranger cd"
 
 # ~ Git aliases ~
 alias update="git status"
