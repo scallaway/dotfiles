@@ -6,13 +6,13 @@
     "reload_style_on_change": true,
     "modules-left": [
         "hyprland/workspaces",
-    ],
-    "modules-center": [
-	"hyprland/window",
+        "hyprland/window",
     ],
     "modules-right": [
         "cpu",
         "memory",
+        "disk",
+        "disk#pool",
         "network",
         "pulseaudio",
         "clock#date",
@@ -51,15 +51,15 @@
         }
     },
     "hyprland/window": {
-      "max-length": 200,
+      "max-length": 50,
       "separate-outputs": true
     },
     "cpu": {
-	"interval": 0.5,
+	"interval": 1,
 	"format": "CPU {usage}%",
     },
     "memory": {
-        "interval": 0.5,
+        "interval": 10,
         "format": "RAM {}%",
         "tooltip-format": "{used:0.1f}GB / {total:0.1f}GB",
         "states": {
@@ -67,12 +67,19 @@
 	    "critical": 90
 	}
     },
+    "disk": {
+	"format": "/ {free} ({percentage_free}%) free",
+    },
+    "disk#pool": {
+	"format": "/pool {free} ({percentage_free}%) free",
+	"path": "/pool",
+    },
     "clock": {
         "format": "{:%H:%M:%S}",
         "interval": 1
     },
     "clock#date": {
-	"format": "{:%D}"
+	"format": "{:%d/%m/%y}"
     },
     "network": {
       "interval": 1,
@@ -86,6 +93,8 @@
 	    "default": ["", ""]
 	},
 	"scroll-step": 1,
+        "format-muted": "{format_source} ",
+	"format-source-muted": "",
     },
     "custom/power": {
         "format": "󰤆",

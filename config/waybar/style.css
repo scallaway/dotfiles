@@ -16,10 +16,11 @@ window#waybar.hidden {
 
 #workspaces {
   margin-left: 4px;
+  margin-right: 8px;
 }
 
 #workspaces button {
-  border-bottom: 2px solid #cdd6f4;
+  border-bottom: 1px solid #cdd6f4;
   border-radius: 0;
   padding: 4px 16px;
   margin: 4px 4px;
@@ -40,6 +41,8 @@ window#waybar.hidden {
 
 #cpu,
 #memory,
+#disk,
+#disk.pool,
 #network,
 #pulseaudio,
 #clock {
@@ -63,11 +66,26 @@ window#waybar.hidden {
 
 #cpu,
 #memory,
+#disk,
+#disk.pool,
 #network,
 #pulseaudio,
 #clock {
   min-width: 16px;
   margin: 8px 4px;
+  font-size: 14px;
+}
+
+
+#disk,
+#disk.pool,
+#network,
+#pulseaudio {
+  font-size: 12px;
+}
+
+#network {
+  min-width: 190px;
 }
 
 #custom-power {
