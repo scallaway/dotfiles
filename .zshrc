@@ -46,6 +46,7 @@ alias cat="bat -pp"
 alias grep="rg -i"
 alias lg="lazygit"
 alias z="zellij"
+alias copy="xclip -selection clipboard"
 
 # ~ Git aliases ~
 alias update="git status"
