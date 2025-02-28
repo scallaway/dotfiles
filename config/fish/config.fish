@@ -49,4 +49,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # Enable Zoxide
 zoxide init fish --cmd j | source
 
+# BindCtrl-O to ranger-cd
+bind \co ranger-cd
+
 starship init fish | source
