@@ -7,6 +7,7 @@ compinit
 
 # ZSH autocompletions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-custom-completions 2> /dev/null
 
 source ~/dev/work/.workrc 2> /dev/null
@@ -27,6 +28,7 @@ SAVEHIST="$((2 ** 31))"
 HISTSIZE="$SAVEHIST"
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
+setopt SHARE_HISTORY
 
 # Use extended pattern matching
 setopt autocd extendedglob nomatch
@@ -73,19 +75,17 @@ eval "$(starship init zsh)"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# fnm
-FNM_PATH="/home/scallaway/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/scallaway/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
+function ranger-cd {
+    tempfile="$(mktemp -t tmp.XXXXXX)"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
 
-# fnm
-FNM_PATH="/home/scallaway/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/scallaway/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
+bindkey -s '^O' 'ranger-cd\n'
 
 # Set up fzf key bindings and fuzzy completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -97,3 +97,6 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/home/scallaway/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
+
+# Launch zellij on startup
+eval "$(zellij setup --generate-auto-start zsh)"

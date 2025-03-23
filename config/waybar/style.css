@@ -1,29 +1,17 @@
 * {
   font-family: JetBrainsMono Nerd Font;
-  font-size: 16px;
   color: #cdd6f4;
 }
 
 window#waybar {
-  background-color: #1e1e2e;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+  background: rgba(30, 30, 46, 0);
 }
 
-window#waybar.hidden {
-  opacity: 0.5;
-}
 
 #workspaces {
-  margin-left: 4px;
-  margin-right: 8px;
-}
-
-#workspaces button {
-  border-bottom: 1px solid #cdd6f4;
-  border-radius: 0;
-  padding: 4px 16px;
-  margin: 4px 4px;
+  background-color: #1e1e2e;
+  border-radius: 8px;
+  margin: 4px;
 }
 
 #workspaces button.active {
@@ -37,64 +25,39 @@ window#waybar.hidden {
 
 #window {
   font-weight: bold;
+  background-color: #1e1e2e;
+  border-radius: 8px;
+  margin: 4px;
+  padding: 0 8px;
 }
 
 #cpu,
+#custom-gpu,
 #memory,
 #disk,
 #disk.pool,
 #network,
 #pulseaudio,
 #clock {
-  border-right: 1px solid #cdd6f4;
-  padding-right: 8px;
-}
-
-#clock {
-  border-right: 1px solid #cdd6f4;
-}
-
-#clock.date {
-  border: none;
-  padding-right: 0;
-  margin-right: 0;
+  background-color: #1e1e2e;
+  min-width: 16px;
+  border-radius: 8px;
+  padding: 0 8px;
+  margin: 4px 2px;
 }
 
 #pulseaudio {
   padding-right: 16px;
 }
 
-#cpu,
-#memory,
-#disk,
-#disk.pool,
-#network,
-#pulseaudio,
 #clock {
-  min-width: 16px;
-  margin: 8px 4px;
-  font-size: 14px;
-}
-
-
-#disk,
-#disk.pool,
-#network,
-#pulseaudio {
-  font-size: 12px;
+  margin-right: 4px;
 }
 
 #network {
   min-width: 190px;
 }
 
-#custom-power {
-  margin-right: 12px;
-  margin-left: 4px;
-}
-
 tooltip label {
   padding: 5px;
-  border-right: 1px solid #131822;
-  border-left: 1px solid #131822;
 }
