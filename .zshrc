@@ -88,7 +88,7 @@ function ranger-cd {
 bindkey -s '^O' 'ranger-cd\n'
 
 # Set up fzf key bindings and fuzzy completion
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 . "/home/scallaway/.deno/env" 2> /dev/null
 
 # fnm
