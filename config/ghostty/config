@@ -6,3 +6,5 @@ mouse-scroll-multiplier = 0.3
 keybind = ctrl+comma=unbind
 keybind = ctrl+enter=unbind
 copy-on-select = clipboard
+font-family = JetBrainsMono
+confirm-close-surface = always
