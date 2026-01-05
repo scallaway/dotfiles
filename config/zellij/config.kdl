@@ -49,53 +49,12 @@ plugins {
     plugin-manager location="zellij:plugin-manager"
 }
 
-// Plugins to load in the background when a new session starts
-load_plugins {
-  // "file:/path/to/my-plugin.wasm"
-  // "https://example.com/my-plugin.wasm"
-}
-
-// Toggle between having pane frames around the panes
-// Options:
-//   - true (default)
-//   - false
-//
 pane_frames false
-
-// Choose the theme that is specified in the themes section.
-// Default: default
-//
 theme "catppuccin-macchiato"
-
-// The name of the default layout to load on startup
-// Default: "default"
-// (Requires restart)
-//
 default_layout "compact"
-
-// Choose the mode that zellij uses when starting up.
-// Default: normal
-//
 default_mode "locked"
-
-// Configure the scroll back buffer size
-// This is the number of lines zellij stores for each pane in the scroll back
-// buffer. Excess number of lines are discarded in a FIFO fashion.
-// (Requires restart)
-// Valid values: positive integers
-// Default value: 10000
-//
 scroll_buffer_size 1000000
-
-// Provide a command to execute when copying text. The text will be piped to
-// the stdin of the program to perform the copy. This can be used with
-// terminal emulators which do not support the OSC 52 ANSI control sequence
-// that will be used by default if this option is not set.
-// Examples:
-//
-copy_command "xclip -selection clipboard" // x11
-
-// Path to the default editor to use to edit pane scrollbuffer
-// Default: $EDITOR or $VISUAL
-//
+copy_command "xclip -selection clipboard"
 scrollback_editor "/usr/local/bin/nvim"
+show_startup_tips false
+
