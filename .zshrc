@@ -6,8 +6,8 @@ autoload -Uz compinit
 compinit
 
 # ZSH autocompletions
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh 2> /dev/null
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null
 source ~/.zsh/zsh-custom-completions 2> /dev/null
 
 source ~/dev/work/.workrc 2> /dev/null
@@ -75,17 +75,6 @@ eval "$(starship init zsh)"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-function ranger-cd {
-    tempfile="$(mktemp -t tmp.XXXXXX)"
-    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" &&
-    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-        cd -- "$(cat "$tempfile")"
-    fi
-    rm -f -- "$tempfile"
-}
-
-bindkey -s '^O' 'ranger-cd\n'
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -100,3 +89,15 @@ fi
 
 # Launch zellij on startup
 eval "$(zellij setup --generate-auto-start zsh)"
+
+# Yazi wrapper function
+function yazi-cd() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+# Open yazi with Ctrl+p
+bindkey -s '^P' 'yazi-cd\n'
