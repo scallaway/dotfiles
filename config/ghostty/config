@@ -7,5 +7,5 @@ keybind = ctrl+comma=unbind
 keybind = ctrl+enter=unbind
 copy-on-select = clipboard
 font-family = JetBrainsMono
-confirm-close-surface = always
 keybind = shift+enter=text:\x1b\r
+confirm-close-surface = false
